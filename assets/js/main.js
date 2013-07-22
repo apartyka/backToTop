@@ -1,0 +1,145 @@
+$(function() {
+
+	/**
+	 * # Scroll To Top
+	 * Used for iOS and other mobile devices to scroll the window to the top and hide the address bar
+	 */
+	window.scroll(0,1);
+
+});
+
+
+;(function ( $, window, document, undefined ) {
+
+    "use strict";
+
+    // Create the defaults once
+    var pluginName = 'backToTop',
+        defaults = {
+            pageOffset: 0.75,
+            fadeTime: 3000,
+            clicked: false  // passed to scrollBottom() and clickEvents(). keep as false.
+        };
+
+    // The actual plugin constructor
+    function Plugin( element, options ) {
+        this.element = element;
+
+        this.options = $.extend( {}, defaults, options) ;
+
+        this._defaults = defaults;
+        this._name = pluginName;
+
+        this.init();
+    }
+
+    Plugin.prototype.init = function () {
+        // Place initialization logic here
+        // We already have access to the DOM element and
+        // the options via the instance, e.g. this.element
+        console.log('this.element: ', this.element);
+        console.log('this._defaults: ', this._defaults);
+        this.scrollBottom();
+        this.clickEvents();
+    };
+
+    Plugin.prototype.scrollBottom = function () {
+        var docW,
+            docH,
+            viewportW,
+            viewportH,
+            vertScrollPosition = 0,
+            prevScrollPosition = 0,
+            $this = $(this.element),
+            d = this._defaults,
+            fadeOutTimer,
+
+            /**
+            * Update the document variables that store the current window and document dimensions.
+            * Webkit browsers have a problem where the viewport width used by JavaScript is not the
+            * same value for the viewport width used by the CSS rendering engine.  This method
+            * normalizes the javascript width value to match the value used by style sheets.
+            */
+            updateDocDims = function () {
+                docW = $(document).width();
+                docH = $(document).height();
+                viewportW = document.documentElement.clientWidth;
+                viewportH = document.documentElement.clientHeight;
+            },
+
+            timedFadeOut = function() {
+                window.clearTimeout(fadeOutTimer);
+
+                fadeOutTimer = window.setTimeout(function() {
+                    $this.stop().fadeOut('fast');
+                }, d.fadeTime);   //fadeTime setting
+            };
+
+        updateDocDims();
+
+        $(window).on('scroll', function() {
+            var offset = d.pageOffset,
+                pageTopOffset = viewportH * offset,   // set a value relative to the top of the page that we never want backToTop to display
+                vertScrollPosition = $(this).scrollTop(),
+                isVisible = $this.is(':visible');
+
+            if ( d.clicked === false ) {
+                if ( vertScrollPosition <= pageTopOffset || vertScrollPosition >= prevScrollPosition ) {
+                    $this.stop().fadeOut('fast');
+                }
+
+                if ( isVisible === false &&
+                    vertScrollPosition < prevScrollPosition &&
+                    vertScrollPosition > pageTopOffset
+                    ) {
+                    $this.stop().fadeIn('fast', function() {
+                        timedFadeOut();
+                    });
+                }
+
+                if ( isVisible === true ) {
+                    timedFadeOut();
+                }
+            }
+
+            prevScrollPosition = vertScrollPosition;
+        });
+
+    };
+    // scrollBottom()
+
+    Plugin.prototype.clickEvents = function () {
+        var $this = $(this.element),
+            d = this._defaults;
+
+        $this.on('click', function(ev) {
+            ev.preventDefault();
+
+            d.clicked = true;
+
+            //console.log('clicked === true');
+            $('body,html').stop().animate({
+                scrollTop: 0
+            }, 800, function(){
+                d.clicked = false;
+            });
+
+            $this.stop().fadeOut('fast');
+        });
+    };
+    // clickEvents()
+
+    // A really lightweight plugin wrapper around the constructor,
+    // preventing against multiple instantiations
+    $.fn[pluginName] = function ( options ) {
+        return this.each(function () {
+            if ( !$.data(this, "plugin_" + pluginName )) {
+                $.data( this, "plugin_" + pluginName,
+                    new Plugin( this, options ));
+            }
+        });
+    };
+
+    $('#back-to-top').backToTop();
+
+})( jQuery, window, document );

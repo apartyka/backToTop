@@ -1,0 +1,874 @@
+/**
+ * This is used for output of all CSS.
+ * CSS selectors should not be added here.
+ * REMOVE: '@import "demo-only"'
+ */
+/*customized version of normalize-full.scss*/
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap; }
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Global Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* spacing.scss v1.1 | https://github.com/kevinmack18/SASS-Margin-and-Padding-Starter */
+/*
+	* Created by Kevin Mack
+	* Created On: January 31, 2013
+	* Updated Last: April 15, 2013
+	* kmack@resource.com | http://fb.com/kevinmack
+	* https://github.com/kevinmack18/SASS-Margin-and-Padding-Starter
+
+	## PURPOSE
+		* Used to generate margin and padding for your project. Ideal for object-oriented CSS.
+	## REQUIRES
+		* Sass 3.2.x
+	## SETUP
+		* `cd {~path to directory~}/assets`
+		* `sass --watch scss:css --style compressed`
+	## MORE
+		* @import "spacing.scss" in your global *.scss file OR just put the following code within your global *.scss file.
+		* Recommended to be used as a partial within your global compiled file. If used as a partial, you may want to define Variables elsewhere.
+*/
+/* ==========================================================================
+   Global Space Variables
+   ==========================================================================
+   * Defined in `{path}/assets/_variables.scss`
+	$default-space: 20px;
+	$default-space-half: $default-space/2;
+	$default-smaller: $default-space/2;
+	$default-space-2x: $default-space*2;
+	$default-space-smallest: 5px;
+	$default-space-smaller: $default-space-half;
+ */
+/* ==========================================================================
+   @mixin definitions
+   ========================================================================== */
+/*
+	## @mixin space-property() ARGUMENTS
+		* `$property`: The property and class that will be generated.
+			String of for CSS property of "margin", "padding", "margin-*", "padding-*". Default: NO DEFAULT, REQUIRES A VALUE
+			Examples: "padding", "padding-bottom", "margin-right"
+		* `$space`: The spacing for the property.
+			String of excepted values for margin/padding CSS properties. Default: default-space
+		* `$include-smallest`: Include ".*-smallest" in mixin output. Not necessarily required in media query because $default-space-smallest should not change.
+			Boolean. Default: true
+		* `$space-smallest`: Smallest measurement space in the design
+			String of excepted values for margin/padding CSS properties. Default: $default-space-smallest
+		* `$custom-class-name`: Override the default class name. By default it outputs the $property for both the class name and CSS property to be defined.
+			String. Default: false.
+			Example: @include space-property( "margin-bottom", 90px, false, $custom-class-name:"margin-bottom-alt" );
+*/
+/* ==========================================================================
+   Global Padding & Margin
+   ========================================================================== */
+.padding {
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px; }
+
+.padding-half {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px; }
+
+.padding-2x {
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px; }
+
+.padding-sides {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.padding-sides-half {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.padding-sides-2x {
+  padding-left: 40px;
+  padding-right: 40px; }
+
+.padding-smallest {
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px; }
+
+.padding-verticals {
+  padding-bottom: 20px;
+  padding-top: 20px; }
+
+.padding-verticals-half {
+  padding-bottom: 10px;
+  padding-top: 10px; }
+
+.padding-verticals-2x {
+  padding-bottom: 40px;
+  padding-top: 40px; }
+
+.margin {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px; }
+
+.margin-half {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px; }
+
+.margin-2x {
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px; }
+
+.margin-sides {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.margin-sides-half {
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.margin-sides-2x {
+  margin-left: 40px;
+  margin-right: 40px; }
+
+.margin-smallest {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px; }
+
+.margin-verticals {
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
+.margin-verticals-half {
+  margin-bottom: 10px;
+  margin-top: 10px; }
+
+.margin-verticals-2x {
+  margin-bottom: 40px;
+  margin-top: 40px; }
+
+.margin-bottom {
+  margin-bottom: 20px; }
+
+.margin-bottom-half {
+  margin-bottom: 10px; }
+
+.margin-bottom-2x {
+  margin-bottom: 40px; }
+
+.margin-bottom-smallest {
+  margin-bottom: 5px; }
+
+.margin-left {
+  margin-left: 20px; }
+
+.margin-left-half {
+  margin-left: 10px; }
+
+.margin-left-2x {
+  margin-left: 40px; }
+
+.margin-left-smallest {
+  margin-left: 5px; }
+
+.margin-right {
+  margin-right: 20px; }
+
+.margin-right-half {
+  margin-right: 10px; }
+
+.margin-right-2x {
+  margin-right: 40px; }
+
+.margin-right-smallest {
+  margin-right: 5px; }
+
+.margin-top {
+  margin-top: 20px; }
+
+.margin-top-half {
+  margin-top: 10px; }
+
+.margin-top-2x {
+  margin-top: 40px; }
+
+.margin-top-smallest {
+  margin-top: 5px; }
+
+.padding-bottom {
+  padding-bottom: 20px; }
+
+.padding-bottom-half {
+  padding-bottom: 10px; }
+
+.padding-bottom-2x {
+  padding-bottom: 40px; }
+
+.padding-bottom-smallest {
+  padding-bottom: 5px; }
+
+.padding-left {
+  padding-left: 20px; }
+
+.padding-left-half {
+  padding-left: 10px; }
+
+.padding-left-2x {
+  padding-left: 40px; }
+
+.padding-left-smallest {
+  padding-left: 5px; }
+
+.padding-right {
+  padding-right: 20px; }
+
+.padding-right-half {
+  padding-right: 10px; }
+
+.padding-right-2x {
+  padding-right: 40px; }
+
+.padding-right-smallest {
+  padding-right: 5px; }
+
+.padding-top {
+  padding-top: 20px; }
+
+.padding-top-half {
+  padding-top: 10px; }
+
+.padding-top-2x {
+  padding-top: 40px; }
+
+.padding-top-smallest {
+  padding-top: 5px; }
+
+/* ==========================================================================
+   @media screen breakpoint
+   ========================================================================== */
+/**
+ * This is an arbitrary breakpoint and is relative to your initial padding and design.
+ * I find myself switching global space at this size.
+ */
+@media screen and (max-width: 400px) {
+  .padding {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px; }
+
+  .padding-half {
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px; }
+
+  .padding-2x {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px; }
+
+  .padding-sides {
+    padding-left: 10px;
+    padding-right: 10px; }
+
+  .padding-sides-half {
+    padding-left: 5px;
+    padding-right: 5px; }
+
+  .padding-sides-2x {
+    padding-left: 20px;
+    padding-right: 20px; }
+
+  .padding-verticals {
+    padding-bottom: 10px;
+    padding-top: 10px; }
+
+  .padding-verticals-half {
+    padding-bottom: 5px;
+    padding-top: 5px; }
+
+  .padding-verticals-2x {
+    padding-bottom: 20px;
+    padding-top: 20px; }
+
+  .margin {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px; }
+
+  .margin-half {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px; }
+
+  .margin-2x {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px; }
+
+  .margin-sides {
+    margin-left: 10px;
+    margin-right: 10px; }
+
+  .margin-sides-half {
+    margin-left: 5px;
+    margin-right: 5px; }
+
+  .margin-sides-2x {
+    margin-left: 20px;
+    margin-right: 20px; }
+
+  .margin-verticals {
+    margin-bottom: 10px;
+    margin-top: 10px; }
+
+  .margin-verticals-half {
+    margin-bottom: 5px;
+    margin-top: 5px; }
+
+  .margin-verticals-2x {
+    margin-bottom: 20px;
+    margin-top: 20px; }
+
+  .margin-bottom {
+    margin-bottom: 10px; }
+
+  .margin-bottom-half {
+    margin-bottom: 5px; }
+
+  .margin-bottom-2x {
+    margin-bottom: 20px; }
+
+  .margin-left {
+    margin-left: 10px; }
+
+  .margin-left-half {
+    margin-left: 5px; }
+
+  .margin-left-2x {
+    margin-left: 20px; }
+
+  .margin-right {
+    margin-right: 10px; }
+
+  .margin-right-half {
+    margin-right: 5px; }
+
+  .margin-right-2x {
+    margin-right: 20px; }
+
+  .margin-top {
+    margin-top: 10px; }
+
+  .margin-top-half {
+    margin-top: 5px; }
+
+  .margin-top-2x {
+    margin-top: 20px; }
+
+  .padding-bottom {
+    padding-bottom: 10px; }
+
+  .padding-bottom-half {
+    padding-bottom: 5px; }
+
+  .padding-bottom-2x {
+    padding-bottom: 20px; }
+
+  .padding-left {
+    padding-left: 10px; }
+
+  .padding-left-half {
+    padding-left: 5px; }
+
+  .padding-left-2x {
+    padding-left: 20px; }
+
+  .padding-right {
+    padding-right: 10px; }
+
+  .padding-right-half {
+    padding-right: 5px; }
+
+  .padding-right-2x {
+    padding-right: 20px; }
+
+  .padding-top {
+    padding-top: 10px; }
+
+  .padding-top-half {
+    padding-top: 5px; }
+
+  .padding-top-2x {
+    padding-top: 20px; } }
+/* ==========================================================================
+   Master Base Template - Structure
+   ========================================================================== */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/* ==========================================================================
+   Containers & Holders
+   ========================================================================== */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Global Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Module/Page Specific CSS: Contains CSS that is not global
+   Examples: "About Page Only" CSS or a non-reusable component
+   ========================================================================== */
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+#back-to-top {
+  background: red;
+  border: 2px solid black;
+  display: none;
+  outline: 0;
+  padding: 24px;
+  position: fixed;
+  top: 40px;
+  right: 0px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 100; }
+  #back-to-top .glyph {
+    color: red; }
+
+/* ==========================================================================
+   DEMO ONLY STYLING
+   ========================================================================== */
+/**
+ * `@import "demo-only"` This is used only for demo purposes, this should be removed from a project.
+ * Comment or delete this line and feel free to delete this from "scss" directory
+ */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Global Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Master Base Template - Structure
+   ========================================================================== */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2 {
+  color: #444;
+  text-shadow: 1px 1px 0 #FFF; }
+
+h1 {
+  font-size: 1.5em; }
+
+h2 {
+  font-size: 1.333em; }
+
+p {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8); }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a {
+  color: #666;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent; }
+  a:hover {
+    text-decoration: underline; }
+
+/* ==========================================================================
+   Containers & Holders
+   ========================================================================== */
+header {
+  margin-left: auto;
+  margin-right: auto; }
+  header ul {
+    padding: 0;
+    list-style-type: none; }
+    header ul > li {
+      display: inline-block; }
+
+[class*="container"] {
+  margin-left: auto;
+  margin-right: auto; }
+
+.container-full > [class^="container"] {
+  width: 900px; }
+  @media screen and (max-width: 940px) {
+    .container-full > [class^="container"] {
+      margin-left: 20px;
+      margin-right: 20px;
+      width: auto; } }
+  @media screen and (max-width: 400px) {
+    .container-full > [class^="container"] {
+      margin-left: 10px;
+      margin-right: 10px; } }

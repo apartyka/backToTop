@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   Global Mixins
+   ========================================================================== */
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/**
+ * ## Global Spaces
+ */
+/**
+ * ## Global Widths
+ */
+/**
+ * ## Global Colors
+ */
+/* ==========================================================================
+   IE Specific CSS
+   ========================================================================== */
+/**
+ * IE-Specific identifiers if you need them:
+ * IE 6 specific properties selector: `html #nav li ul { }`
+ * IE 7 specific properties selector: `+html #nav li ul { }`
+ * Examples:
+   <pre>
+	.selector-name {
+	    color: black;
+	}
+	.selector-name {
+	    *color: blue; // IE6+7, doesn't work in IE8/9 as IE7
+	}
+	.selector-name {
+	    _color: red; // IE6
+	}
+	.selector-name {
+	    color: green \0/; // IE8+9
+	}
+	@media all and (min-width:0) {
+	    .selector-name {
+	    	color: pink \0/; // IE9-IE10pp4
+    	}
+	}
+   </pre>
+ */
