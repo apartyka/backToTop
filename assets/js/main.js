@@ -17,7 +17,7 @@ $(function() {
     var pluginName = 'backToTop',
         defaults = {
             pageOffset: 0.75,
-            fadeTime: 3000,
+            fadeSpeed: 3000,
             clicked: false  // passed to scrollBottom() and clickEvents(). keep as false.
         };
 
@@ -50,9 +50,9 @@ $(function() {
             viewportH,
             vertScrollPosition = 0,
             prevScrollPosition = 0,
+            fadeOutTimer,
             $this = $(this.element),
             d = this._defaults,
-            fadeOutTimer,
 
             /**
             * Update the document variables that store the current window and document dimensions.
@@ -72,7 +72,7 @@ $(function() {
 
                 fadeOutTimer = window.setTimeout(function() {
                     $this.stop().fadeOut('fast');
-                }, d.fadeTime);   //fadeTime setting
+                }, d.fadeSpeed);   //fadeSpeed setting
             };
 
         updateDocDims();
@@ -84,7 +84,8 @@ $(function() {
                 isVisible = $this.is(':visible');
 
             if ( d.clicked === false ) {
-                if ( vertScrollPosition <= pageTopOffset || vertScrollPosition >= prevScrollPosition ) {
+                if ( vertScrollPosition <= pageTopOffset ||
+                    vertScrollPosition >= prevScrollPosition ) {
                     $this.stop().fadeOut('fast');
                 }
 
@@ -112,7 +113,7 @@ $(function() {
         var $this = $(this.element),
             d = this._defaults;
 
-        $this.on('click', function(ev) {
+        $this.on('click', function (ev) {
             ev.preventDefault();
 
             d.clicked = true;
@@ -120,7 +121,7 @@ $(function() {
             //console.log('clicked === true');
             $('body,html').stop().animate({
                 scrollTop: 0
-            }, 800, function(){
+            }, 800, function (){
                 d.clicked = false;
             });
 
