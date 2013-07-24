@@ -148,6 +148,16 @@ $(function() {
         });
     };
 
-    $('#back-to-top').backToTop();
+/** defaults that can be overwritten
+    pageOffset: 0.75,
+    haltFadeSpeed: 3000,
+    clicked: false  passed to scrollBottom() and clickEvents(). keep as false.
+ */
+    $('.back-to-top').backToTop();
+
+    $('.back-to-top.test').backToTop({
+        pageOffset: 1.0,
+        haltFadeSpeed: 300
+    });
 
 })(jQuery, window, document);

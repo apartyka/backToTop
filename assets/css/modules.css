@@ -32,7 +32,7 @@
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-#back-to-top {
+.back-to-top {
   background: red;
   border: 2px solid black;
   display: none;
@@ -44,5 +44,8 @@
   text-align: center;
   text-decoration: none;
   z-index: 100; }
-  #back-to-top .glyph {
+  .back-to-top .glyph {
     color: red; }
+  .back-to-top.test {
+    background: green;
+    top: 180px; }
