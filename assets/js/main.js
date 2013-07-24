@@ -17,7 +17,7 @@ $(function() {
     var pluginName = 'backToTop',
         defaults = {
             pageOffset: 0.75,
-            fadeSpeed: 3000,
+            scrollFadeSpeed: 3000,
             clicked: false  // passed to scrollBottom() and clickEvents(). keep as false.
         };
 
@@ -25,7 +25,12 @@ $(function() {
     function Plugin( element, options ) {
         this.element = element;
 
-        this.options = $.extend( {}, defaults, options) ;
+        // jQuery has an extend method that merges the
+        // contents of two or more objects, storing the
+        // result in the first object. The first object
+        // is generally empty because we don't want to alter
+        // the default options for future instances of the plugin
+        this.options = $.extend( {}, defaults, options );
 
         this._defaults = defaults;
         this._name = pluginName;
@@ -37,11 +42,13 @@ $(function() {
         // Place initialization logic here
         // We already have access to the DOM element and
         // the options via the instance, e.g. this.element
-        console.log('this.element: ', this.element);
-        console.log('this._defaults: ', this._defaults);
+        console.log('init() this: ', this);
+        console.log('init() this.element: ', this.element);
+
         this.scrollBottom();
         this.clickEvents();
     };
+    // init()
 
     Plugin.prototype.scrollBottom = function () {
         var docW,
@@ -52,7 +59,7 @@ $(function() {
             prevScrollPosition = 0,
             fadeOutTimer,
             $this = $(this.element),
-            d = this._defaults,
+            o = this.options,
 
             /**
             * Update the document variables that store the current window and document dimensions.
@@ -72,18 +79,18 @@ $(function() {
 
                 fadeOutTimer = window.setTimeout(function() {
                     $this.stop().fadeOut('fast');
-                }, d.fadeSpeed);   //fadeSpeed setting
+                }, o.scrollFadeSpeed);   //scrollFadeSpeed setting
             };
 
         updateDocDims();
 
         $(window).on('scroll', function() {
-            var offset = d.pageOffset,
+            var offset = o.pageOffset,
                 pageTopOffset = viewportH * offset,   // set a value relative to the top of the page that we never want backToTop to display
                 vertScrollPosition = $(this).scrollTop(),
                 isVisible = $this.is(':visible');
 
-            if ( d.clicked === false ) {
+            if ( o.clicked === false ) {
                 if ( vertScrollPosition <= pageTopOffset ||
                     vertScrollPosition >= prevScrollPosition ) {
                     $this.stop().fadeOut('fast');
@@ -111,18 +118,18 @@ $(function() {
 
     Plugin.prototype.clickEvents = function () {
         var $this = $(this.element),
-            d = this._defaults;
+            o = this.options;
 
         $this.on('click', function (ev) {
             ev.preventDefault();
 
-            d.clicked = true;
+            o.clicked = true;
 
             //console.log('clicked === true');
             $('body,html').stop().animate({
                 scrollTop: 0
             }, 800, function (){
-                d.clicked = false;
+                o.clicked = false;
             });
 
             $this.stop().fadeOut('fast');
