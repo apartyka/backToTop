@@ -9,7 +9,7 @@ $(function() {
 });
 
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
     "use strict";
 
@@ -17,12 +17,12 @@ $(function() {
     var pluginName = 'backToTop',
         defaults = {
             pageOffset: 0.75,
-            scrollFadeSpeed: 3000,
+            haltFadeSpeed: 3000,
             clicked: false  // passed to scrollBottom() and clickEvents(). keep as false.
         };
 
     // The actual plugin constructor
-    function Plugin( element, options ) {
+    function Plugin(element, options) {
         this.element = element;
 
         // jQuery has an extend method that merges the
@@ -30,10 +30,10 @@ $(function() {
         // result in the first object. The first object
         // is generally empty because we don't want to alter
         // the default options for future instances of the plugin
-        this.options = $.extend( {}, defaults, options );
+        this.options = $.extend({}, defaults, options);
 
-        this._defaults = defaults;
-        this._name = pluginName;
+        this.defaults = defaults;
+        this.name = pluginName;
 
         this.init();
     }
@@ -42,8 +42,8 @@ $(function() {
         // Place initialization logic here
         // We already have access to the DOM element and
         // the options via the instance, e.g. this.element
-        console.log('init() this: ', this);
-        console.log('init() this.element: ', this.element);
+//        console.log('init() this: ', this);
+//        console.log('init() this.element: ', this.element);
 
         this.scrollBottom();
         this.clickEvents();
@@ -74,38 +74,38 @@ $(function() {
                 viewportH = document.documentElement.clientHeight;
             },
 
-            timedFadeOut = function() {
+            timedFadeOut = function () {
                 window.clearTimeout(fadeOutTimer);
 
-                fadeOutTimer = window.setTimeout(function() {
+                fadeOutTimer = window.setTimeout(function () {
                     $this.stop().fadeOut('fast');
-                }, o.scrollFadeSpeed);   //scrollFadeSpeed setting
+                }, o.haltFadeSpeed);   //haltFadeSpeed setting
             };
 
         updateDocDims();
 
-        $(window).on('scroll', function() {
+        $(window).on('scroll', function () {
             var offset = o.pageOffset,
                 pageTopOffset = viewportH * offset,   // set a value relative to the top of the page that we never want backToTop to display
                 vertScrollPosition = $(this).scrollTop(),
                 isVisible = $this.is(':visible');
 
-            if ( o.clicked === false ) {
-                if ( vertScrollPosition <= pageTopOffset ||
-                    vertScrollPosition >= prevScrollPosition ) {
+            if (o.clicked === false) {
+                if (vertScrollPosition <= pageTopOffset ||
+                    vertScrollPosition >= prevScrollPosition) {
                     $this.stop().fadeOut('fast');
                 }
 
-                if ( isVisible === false &&
+                if (isVisible === false &&
                     vertScrollPosition < prevScrollPosition &&
                     vertScrollPosition > pageTopOffset
                     ) {
-                    $this.stop().fadeIn('fast', function() {
+                    $this.stop().fadeIn('fast', function () {
                         timedFadeOut();
                     });
                 }
 
-                if ( isVisible === true ) {
+                if (isVisible === true) {
                     timedFadeOut();
                 }
             }
@@ -128,7 +128,7 @@ $(function() {
             //console.log('clicked === true');
             $('body,html').stop().animate({
                 scrollTop: 0
-            }, 800, function (){
+            }, 800, function () {
                 o.clicked = false;
             });
 
@@ -139,15 +139,15 @@ $(function() {
 
     // A really lightweight plugin wrapper around the constructor,
     // preventing against multiple instantiations
-    $.fn[pluginName] = function ( options ) {
+    $.fn[pluginName] = function (options) {
         return this.each(function () {
-            if ( !$.data(this, "plugin_" + pluginName )) {
-                $.data( this, "plugin_" + pluginName,
-                    new Plugin( this, options ));
+            if (!$.data(this, "plugin_" + pluginName)) {
+                $.data(this, "plugin_" + pluginName,
+                    new Plugin(this, options));
             }
         });
     };
 
     $('#back-to-top').backToTop();
 
-})( jQuery, window, document );
+})(jQuery, window, document);
