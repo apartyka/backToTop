@@ -1,18 +1,19 @@
-#NEED TO CREATE A README FILE
+#Back To Top jQuery plugin
 
-##Subtitle
+##Description
+When scrolling back up a page the widget will appear, giving the user the option to quickly scroll back to the top of the page. This is a nice widget to add for pages with lot's of scrolling content.
 
-* Bullet
-* Bullet 2
-
-##Number Bullets Example
-1. Bullet
-* this will be 2.
-* this will be 3.
+##Requirements
+1. jQuery 1.9.1+
+* Sass 3.2+
+* Fixed position css rules
 
 ## Sub-subtitle
 
-<pre>code example</pre>
+Usage
+<pre>
+    $('.your-selector').backToTop();
+</pre>
 
 ([Link text](http://link-url-here))
 
@@ -33,7 +34,7 @@
 
 ##Include the following:
 * Mod Name: 
-* Mod Author: 
+* Mod Author: Adam Partyka
 * Version: 
 * Release Date: 
 * Respository: 

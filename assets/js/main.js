@@ -1,14 +1,3 @@
-$(function() {
-
-	/**
-	 * # Scroll To Top
-	 * Used for iOS and other mobile devices to scroll the window to the top and hide the address bar
-	 */
-	window.scroll(0,1);
-
-});
-
-
 ;(function ($, window, document, undefined) {
 
     "use strict";
@@ -16,20 +5,14 @@ $(function() {
     // Create the defaults once
     var pluginName = 'backToTop',
         defaults = {
-            pageOffset: 0.75,
+            pageOffset: 0.75,   // value determines distance from the top of the page where backToTop will fadeOut
             haltFadeSpeed: 3000,
             clicked: false  // passed to scrollBottom() and clickEvents(). keep as false.
         };
 
-    // The actual plugin constructor
+    // plugin constructor
     function Plugin(element, options) {
         this.element = element;
-
-        // jQuery has an extend method that merges the
-        // contents of two or more objects, storing the
-        // result in the first object. The first object
-        // is generally empty because we don't want to alter
-        // the default options for future instances of the plugin
         this.options = $.extend({}, defaults, options);
 
         this.defaults = defaults;
@@ -39,9 +22,6 @@ $(function() {
     }
 
     Plugin.prototype.init = function () {
-        // Place initialization logic here
-        // We already have access to the DOM element and
-        // the options via the instance, e.g. this.element
 //        console.log('init() this: ', this);
 //        console.log('init() this.element: ', this.element);
 
@@ -79,33 +59,38 @@ $(function() {
 
                 fadeOutTimer = window.setTimeout(function () {
                     $this.stop().fadeOut('fast');
-                }, o.haltFadeSpeed);   //haltFadeSpeed setting
+                }, o.haltFadeSpeed);
             };
 
         updateDocDims();
 
         $(window).on('scroll', function () {
             var offset = o.pageOffset,
-                pageTopOffset = viewportH * offset,   // set a value relative to the top of the page that we never want backToTop to display
+                pageTopOffset = viewportH * offset,   // value relative to the top of the page where backToTop will fadeOut
                 vertScrollPosition = $(this).scrollTop(),
                 isVisible = $this.is(':visible');
 
+            // if backToTop has not been clicked
             if (o.clicked === false) {
+                // if you're scrolling back down the page from scrolling up, hide it. the default condition on page load
                 if (vertScrollPosition <= pageTopOffset ||
                     vertScrollPosition >= prevScrollPosition) {
+                    console.log('condition 1');
                     $this.stop().fadeOut('fast');
                 }
-
+                // if you're scrolling up the page, show it
                 if (isVisible === false &&
                     vertScrollPosition < prevScrollPosition &&
                     vertScrollPosition > pageTopOffset
                     ) {
                     $this.stop().fadeIn('fast', function () {
+                        console.log('condition 2');
                         timedFadeOut();
                     });
                 }
-
+                // if you're scrolling up the page, widget is visible, call timedFadeOut for when scrolling stops
                 if (isVisible === true) {
+                    console.log('condition 3');
                     timedFadeOut();
                 }
             }
@@ -125,7 +110,6 @@ $(function() {
 
             o.clicked = true;
 
-            //console.log('clicked === true');
             $('body,html').stop().animate({
                 scrollTop: 0
             }, 800, function () {
@@ -137,8 +121,6 @@ $(function() {
     };
     // clickEvents()
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
     $.fn[pluginName] = function (options) {
         return this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
@@ -155,9 +137,9 @@ $(function() {
  */
     $('.back-to-top').backToTop();
 
-    $('.back-to-top.test').backToTop({
-        pageOffset: 1.0,
-        haltFadeSpeed: 300
-    });
+//    $('.back-to-top').backToTop({
+//        pageOffset: 1.0,
+//        haltFadeSpeed: 300
+//    });
 
 })(jQuery, window, document);

@@ -1,91 +1,40 @@
-/* ==========================================================================
-   Global Variables
-   ========================================================================== */
-/**
- * ## Global Spaces
- */
-/**
- * ## Global Widths
- */
-/**
- * ## Global Colors
- */
-/* ==========================================================================
-   Global Mixins
-   ========================================================================== */
-/* ==========================================================================
-   Global Variables
-   ========================================================================== */
-/**
- * ## Global Spaces
- */
-/**
- * ## Global Widths
- */
-/**
- * ## Global Colors
- */
-/* ==========================================================================
-   Master Base Template - Structure
-   ========================================================================== */
-body {
-  background-color: #f5f5f5;
-  color: #333;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 0; }
+/*
+Syntax error: Invalid CSS after "...============ */": expected selector or at-rule, was "}"
+        on line 12 of scss/demo-only.scss
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-h1, h2 {
-  color: #444;
-  text-shadow: 1px 1px 0 #FFF; }
+7: 
+8: 
+9: /* ==========================================================================
+10:    Typography
+11:    ========================================================================== */
+12: 		}
+13: 
+14: /* ==========================================================================
+15:    Links
+16:    ========================================================================== */
+17: 		a {
 
-h1 {
-  font-size: 1.5em; }
-
-h2 {
-  font-size: 1.333em; }
-
-p {
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8); }
-
-/* ==========================================================================
-   Links
-   ========================================================================== */
-a {
-  color: #666;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent; }
-  a:hover {
-    text-decoration: underline; }
-
-/* ==========================================================================
-   Containers & Holders
-   ========================================================================== */
-header {
-  margin-left: auto;
-  margin-right: auto; }
-  header ul {
-    padding: 0;
-    list-style-type: none; }
-    header ul > li {
-      display: inline-block; }
-
-[class*="container"] {
-  margin-left: auto;
-  margin-right: auto; }
-
-.container-full > [class^="container"] {
-  width: 900px; }
-  @media screen and (max-width: 940px) {
-    .container-full > [class^="container"] {
-      margin-left: 20px;
-      margin-right: 20px;
-      width: auto; } }
-  @media screen and (max-width: 400px) {
-    .container-full > [class^="container"] {
-      margin-left: 10px;
-      margin-right: 10px; } }
+Backtrace:
+scss/demo-only.scss:12
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/parser.rb:1148:in `expected'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/parser.rb:1084:in `expected'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/scss/parser.rb:28:in `parse'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/engine.rb:342:in `_to_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:283:in `block in watch'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `on_change'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapters/polling.rb:56:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapters/polling.rb:56:in `poll'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/listen-0.7.3/lib/listen/adapters/polling.rb:32:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...============ */\": expected selector or at-rule, was \"}\"\A         on line 12 of scss/demo-only.scss\A \A 7: \A 8: \A 9: /* ==========================================================================\A 10:    Typography\A 11:    ========================================================================== */\A 12: 		}\A 13: \A 14: /* ==========================================================================\A 15:    Links\A 16:    ========================================================================== */\A 17: 		a {"; }
